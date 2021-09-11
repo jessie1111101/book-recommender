@@ -5,16 +5,11 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import StarIcon from "@material-ui/icons/StarBorder";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
-import TopBar from "../../Components/TopBar";
-//import BookRecommendation from "./Pages/BookRecommendation/BookRecommendation";
-import Footer from "../../Components/Footer";
 
 const useStyles = makeStyles((theme) => ({
 	"@global": {
@@ -92,9 +87,6 @@ export default function BookRecommendation() {
 	return (
 		<div>
 			<React.Fragment>
-				<CssBaseline />
-				<TopBar />
-				{/* <BookRecommendation /> */}
 				{/*The title and subtitle of the page aka HERO CONTENT*/}
 				<Container
 					maxWidth="sm"
@@ -167,7 +159,6 @@ export default function BookRecommendation() {
 						))}
 					</Grid>
 				</Container>
-				<Footer />
 			</React.Fragment>
 		</div>
 	);
