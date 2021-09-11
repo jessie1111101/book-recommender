@@ -64,7 +64,7 @@ ALL_BOOK_TITLES = list(df_books['title'])
 def get_all_titles():
     return {"titles": ALL_BOOK_TITLES}
 
-@app.route('/recommendations')
+@app.route('/recommendations/<title>')
 def get_recommendations(title="Romeo and Juliet", num_recommendations = 3):
 
     idx = indices[title]

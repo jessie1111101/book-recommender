@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField, Button } from "@material-ui/core";
 
+import history from "../history";
+
 class Search extends Component {
     constructor(props) {
         super(props);
@@ -22,6 +24,7 @@ class Search extends Component {
         } else {
             this.setState({ displayError: false });
             console.log("router display results " + this.state.selected);
+            history.push("/recommendation");
         }
     };
 
