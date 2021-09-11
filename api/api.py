@@ -57,26 +57,23 @@ tfidf_matrix_combined = tf_combined.fit_transform(df_books['combined'])
 cosine_sim_combined = linear_kernel(tfidf_matrix_combined,
                                     tfidf_matrix_combined)
 
-
-titles = df_books['title']
+info = df_books[['title','authors','original_publication_year', 'average_rating', 'image_url', 'small_image_url']]
 indices = pd.Series(df_books.index, index=df_books['title'])
 
+@app.route('/recommendations')
+def get_recommendations(title="Romeo and Juliet", num_recommendations = 3):
 
-def combined_recom(title, n):
-    
     idx = indices[title]
     sim_scores = list(enumerate(cosine_sim_combined[idx]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
-    sim_scores = sim_scores[1:n+1]
+    sim_scores = sim_scores[1:num_recommendations+1]
     book_indices = [i[0] for i in sim_scores]
     
-    return titles.iloc[book_indices]
+    result_df = info.iloc[book_indices]
+    result_df = result_df.reset_index()
+    result_df.drop('index',inplace=True, axis=1)
+    return result_df.to_json(orient='index')
 
-#combined_recom('Romeo and Juliet', 10)
-
-
-@app.route('/recommendations')
-def get_recommendations():
-    return {'recommendations': ["Book 1", "Book 2", "Book 3"]}
+print(get_recommendations())
 
 app.run(debug=True)
