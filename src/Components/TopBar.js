@@ -1,10 +1,10 @@
 import React from "react";
 
 import { AppBar } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+//import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
+//import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -48,7 +48,7 @@ export default function TopBar() {
 					>
 						Big Brain Team - PennApps XXII
 					</Typography>
-					<nav>
+					{/* <nav>
 						<Link
 							variant="button"
 							color="textPrimary"
@@ -58,8 +58,8 @@ export default function TopBar() {
 						>
 							Take a Test to get your Recommendation!
 						</Link>
-					</nav>
-					<Button
+					</nav> */}
+					{/* <Button
 						href="#"
 						color="primary"
 						variant="outlined"
@@ -67,7 +67,7 @@ export default function TopBar() {
 						//onClick = {}
 					>
 						Login
-					</Button>
+					</Button> */}
 				</Toolbar>
 			</AppBar>
 			;
