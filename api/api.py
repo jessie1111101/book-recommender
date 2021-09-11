@@ -20,14 +20,9 @@ df_books = pd.read_csv('../goodreads_10k/books.csv')
 books_df = df_books[['book_id', 'original_title', 'authors']]
 books_df = books_df.sort_values('book_id')
 
-
-books_df
-
 book_tags_url = 'https://github.com/zygmuntz/goodbooks-10k/blob/master/book_tags.csv?raw=true'
 #book_tags = pd.read_csv(book_tags_url)
 book_tags = pd.read_csv('../goodreads_10k/book_tags.csv')
-
-book_tags
 
 tags_url = 'https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/master/tags.csv'
 #tags = pd.read_csv(tags_url)
@@ -62,6 +57,12 @@ cosine_sim_combined = linear_kernel(tfidf_matrix_combined,
 
 info = df_books[['title','authors','original_publication_year', 'average_rating']]
 indices = pd.Series(df_books.index, index=df_books['title'])
+
+ALL_BOOK_TITLES = list(df_books['title'])
+
+@app.route('/getAllTitles')
+def get_all_titles():
+    return {"titles": ALL_BOOK_TITLES}
 
 @app.route('/recommendations')
 def get_recommendations(title="Romeo and Juliet", num_recommendations = 3):

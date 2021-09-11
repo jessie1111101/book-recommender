@@ -1,12 +1,14 @@
-import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import history from "./history";
 import TopBar from "./Components/TopBar";
-import BookRecommendation from "./Pages/BookRecommendation/BookRecommendation";
+import BookRecommendation from "./Pages/BookRecommendation";
+import Homepage from "./Pages/Homepage";
 import Footer from "./Components/Footer";
+import Search from "./Components/Search";
 
 // const useStyles = makeStyles((theme) => ({
 // 	"@global": {
@@ -82,7 +84,7 @@ export default function App() {
 	// const classes = useStyles();
 
 	// const [data, setData] = useState({});
-	// const [search, setSearch] = useState({});
+	const [titles, setTitles] = useState({});
 
 	// useEffect(() => {
 	// 	fetch('/recommendations').then(
@@ -94,15 +96,15 @@ export default function App() {
 	// 	);
 	// }, []);
 
-	// useEffect(() => {
-	// 	fetch('/search/' + 'harry').then(
-	// 		res => res.json()
-	// 	).then(
-	// 		search => {
-	// 			setSearch(search)
-	// 		}
-	// 	);
-	// }, []);
+	useEffect(() => {
+		fetch('/getAllTitles').then(
+			res => res.json()
+		).then(
+			titles => {
+				setTitles(titles)
+			}
+		);
+	}, []);
 
 	return (
 		<div>
@@ -114,7 +116,7 @@ export default function App() {
 						<BookRecommendation />
 					</Route>
 					<Route path="/">
-						<h1>Search</h1>
+						<Homepage />
 					</Route>
 				</Switch>
 			</Router>
