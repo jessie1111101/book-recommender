@@ -1,5 +1,4 @@
 import React from "react";
-import { Router } from "react-router-dom";
 
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
@@ -13,10 +12,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
-import history from "./history";
-import TopBar from "./Components/TopBar";
+import TopBar from "../../Components/TopBar";
 //import BookRecommendation from "./Pages/BookRecommendation/BookRecommendation";
-import Footer from "./Components/Footer";
+import Footer from "../../Components/Footer";
 
 const useStyles = makeStyles((theme) => ({
 	"@global": {

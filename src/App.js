@@ -15,7 +15,7 @@ import Container from "@material-ui/core/Container";
 
 import history from "./history";
 import TopBar from "./Components/TopBar";
-//import BookRecommendation from "./Pages/BookRecommendation/BookRecommendation";
+import BookRecommendation from "./Pages/BookRecommendation/BookRecommendation";
 import Footer from "./Components/Footer";
 
 /*
@@ -132,84 +132,7 @@ export default function App() {
 	return (
 		<div>
 			<Router history={history}>
-				<React.Fragment>
-					<CssBaseline />
-					<TopBar />
-					{/* <BookRecommendation /> */}
-					{/*The title and subtitle of the page aka HERO CONTENT*/}
-					<Container
-						maxWidth="sm"
-						component="main"
-						className={classes.heroContent}
-					>
-						<Typography
-							component="h1"
-							variant="h2"
-							align="center"
-							color="textPrimary"
-							gutterBottom
-						>
-							Book Recommendation
-						</Typography>
-						<Typography
-							variant="h5"
-							align="center"
-							color="textSecondary"
-							component="p"
-						>
-							Find your next read below!
-						</Typography>
-					</Container>
-					{/*End of title/subtitle segment or HERO CONTENT*/}
-					<Container maxWidth="md" component="main">
-						<Grid container spacing={5} alignItems="flex-end">
-							{tiers.map((tier) => (
-								<Grid
-									item
-									key={tier.title}
-									xs={12}
-									sm={tier.title === "Enterprise" ? 12 : 6}
-									md={4}
-								>
-									<Card>
-										<CardHeader
-											title={tier.title}
-											subheader={tier.subheader}
-											titleTypographyProps={{ align: "center" }}
-											subheaderTypographyProps={{ align: "center" }}
-											action={tier.title === "Pro" ? <StarIcon /> : null}
-											className={classes.cardHeader}
-										/>
-										<CardContent>
-											<ul>
-												{tier.description.map((line) => (
-													<Typography
-														component="li"
-														variant="subtitle1"
-														align="center"
-														key={line}
-													>
-														{line}
-													</Typography>
-												))}
-											</ul>
-										</CardContent>
-										<CardActions>
-											<Button
-												fullWidth
-												variant={tier.buttonVariant}
-												color="primary"
-											>
-												{tier.buttonText}
-											</Button>
-										</CardActions>
-									</Card>
-								</Grid>
-							))}
-						</Grid>
-					</Container>
-					<Footer />
-				</React.Fragment>
+				<BookRecommendation />
 			</Router>
 		</div>
 	);

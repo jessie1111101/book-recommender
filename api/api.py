@@ -83,7 +83,7 @@ print(get_recommendations())
 def search(query):
     if not query:
         return {'books': {}}
-    response_string = 'https://www.goodreads.com/search/index.xml?format=xml&key=Ev590L5ibeayXEVKycXbAw&q=' + query # quote(request.form.get("title"))  
+    response_string = 'https://www.goodreads.com/search/index.xml?format=xml&key=Ev590L5ibeayXEVKycXbAw&q=' + query
     xml = urlopen(response_string)
     data = xml.read()
     xml.close()
