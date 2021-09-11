@@ -1,5 +1,6 @@
 import { Router, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import './App.scss';
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 
@@ -8,7 +9,6 @@ import TopBar from "./Components/TopBar";
 import BookRecommendation from "./Pages/BookRecommendation";
 import Homepage from "./Pages/Homepage";
 import Footer from "./Components/Footer";
-import Search from "./Components/Search";
 
 // const useStyles = makeStyles((theme) => ({
 // 	"@global": {
