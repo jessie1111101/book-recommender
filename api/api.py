@@ -1,8 +1,9 @@
-import time
-from flask import flask
+import flask
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 
-@app.route('/time')
-def get_current_time():
-    return {'time': time.time()}
+@app.route('/recommendations')
+def get_recommendations():
+    return {'recommendations': ["Book 1", "Book 2", "Book 3"]}
+
+app.run(debug=True)
