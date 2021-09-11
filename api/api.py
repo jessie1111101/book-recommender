@@ -78,7 +78,6 @@ def get_recommendations(title="Romeo and Juliet", num_recommendations = 3):
     return result_df.to_json(orient='index')
 
 print(get_recommendations())
-#combined_recom('Romeo and Juliet', 10)
 
 @app.route("/search/<query>", methods = ['GET'])
 def search(query):
@@ -94,10 +93,5 @@ def search(query):
     gr = goodreads_fnl['GoodreadsResponse']['search']['results']
 
     return {'books': gr}
-
-
-@app.route('/recommendations')
-def get_recommendations():
-    return {'recommendations': ["Book 1", "Book 2", "Book 3"]}
 
 app.run(debug=True)
