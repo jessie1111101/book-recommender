@@ -18,6 +18,38 @@ import TopBar from "./Components/TopBar";
 //import BookRecommendation from "./Pages/BookRecommendation/BookRecommendation";
 import Footer from "./Components/Footer";
 
+//ML Code in block below
+//TODO: Migrate to new file
+/* import React, { useState, useEffect } from "react";
+
+function App() {
+	const [data, setData] = useState({});
+
+	useEffect(() => {
+		fetch('/recommendations').then(
+			res => res.json()
+		).then(
+			data => {
+				setData(data);
+			}
+		);
+	}, []);
+
+	return (
+		<div>
+			{(typeof data.recommendations === 'undefined' ? (
+				<p>Loading...</p>
+			) : (
+				data.recommendations.map((book, i) => (
+					<p key={i}>{book}</p>
+				))
+			)
+			)}
+>>>>>>> 21e5f362392e6b3996faef1257b661149957a6c1
+		</div>
+	);
+} */
+
 const useStyles = makeStyles((theme) => ({
 	"@global": {
 		ul: {
