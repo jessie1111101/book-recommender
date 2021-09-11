@@ -40,13 +40,13 @@ export default function TopBar() {
 				className={classes.appBar}
 			>
 				<Toolbar className={classes.toolbar}>
+					<span class="material-icons-outlined md-48">psychology</span>
 					<Typography
 						variant="h6"
 						color="inherit"
 						noWrap
 						className={classes.toolbarTitle}
 					>
-						<span class="material-icons">psychology</span>
 						Big Brain Team - PennApps XXII
 					</Typography>
 					{/* <nav>
