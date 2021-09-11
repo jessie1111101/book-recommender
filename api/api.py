@@ -60,7 +60,7 @@ tfidf_matrix_combined = tf_combined.fit_transform(df_books['combined'])
 cosine_sim_combined = linear_kernel(tfidf_matrix_combined,
                                     tfidf_matrix_combined)
 
-info = df_books[['title','authors','original_publication_year', 'average_rating', 'image_url', 'small_image_url']]
+info = df_books[['title','authors','original_publication_year', 'average_rating']]
 indices = pd.Series(df_books.index, index=df_books['title'])
 
 @app.route('/recommendations')
