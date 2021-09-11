@@ -46,6 +46,7 @@ export default function TopBar() {
 						noWrap
 						className={classes.toolbarTitle}
 					>
+						<span class="material-icons">psychology</span>
 						Big Brain Team - PennApps XXII
 					</Typography>
 					{/* <nav>

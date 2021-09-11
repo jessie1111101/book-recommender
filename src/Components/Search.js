@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { TextField, Button } from "@material-ui/core";
 
+import history from "../history";
 import RecButton from "./RecButton";
 
 class Search extends Component {
@@ -24,6 +25,7 @@ class Search extends Component {
 		} else {
 			this.setState({ displayError: false });
 			console.log("router display results " + this.state.selected);
+			history.push("/recommendation");
 		}
 	};
 
@@ -49,14 +51,6 @@ class Search extends Component {
 				/>
 				<h3 />
 				<RecButton />
-				{/* <Button
-					variant="contained"
-					onClick={this.handleOnClick}
-					color="primary"
-					size="small"
-				>
-					Get Recommendations
-				</Button> */}
 				{displayError ? (
 					<div className="red-text">Please select a book</div>
 				) : null}
