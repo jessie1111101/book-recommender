@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-export default function TopBar() {
+export default function TopBar(props) {
 	const classes = useStyles();
 	return (
 		<div>
@@ -71,7 +71,7 @@ export default function TopBar() {
 						color="primary"
 						variant="outlined"
 						className={classes.link, classes.button}
-						onClick={() => history.push("/")}
+						onClick={props.goHome}
 					>
 						Home
 					</Button>
