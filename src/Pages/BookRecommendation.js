@@ -11,6 +11,10 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { IsoRounded } from "@material-ui/icons";
+import { ThemeProvider } from "@material-ui/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+
+import theme from "../theme";
 
 const useStyles = makeStyles((theme) => ({
 	"@global": {
@@ -88,13 +92,11 @@ export default function BookRecommendation(props) {
 	]);
 
 	useEffect(() => {
-		fetch("/recommendations/" + encodeURIComponent(book)).then(
-			res => res.json()
-		).then(
-			recs => {
+		fetch("/recommendations/" + encodeURIComponent(book))
+			.then((res) => res.json())
+			.then((recs) => {
 				setTiers(populateBooks(recs));
-			}
-		);
+			});
 	}, []);
 
 	const populateBooks = (recs) => {
@@ -111,96 +113,99 @@ export default function BookRecommendation(props) {
 				buttonText: "Purchase",
 				buttonVariant: "outlined",
 			};
-			fetch("/search/" + encodeURIComponent(recs[i].title)).then(
-				res => res.json()
-			).then(
-				data => {
-					currentCard.description.push("Image: " + data.books.work[0].best_book.image_url);
+			fetch("/search/" + encodeURIComponent(recs[i].title))
+				.then((res) => res.json())
+				.then((data) => {
+					currentCard.description.push(
+						"Image: " + data.books.work[0].best_book.image_url
+					);
 					setCard(currentCard);
-				}
-			);
+				});
 			tiers.push(currentCard);
 		}
 
 		return tiers;
-	}
+	};
 
 	return (
 		<div>
-			<React.Fragment>
-				{/*The title and subtitle of the page aka HERO CONTENT*/}
-				<Container
-					maxWidth="sm"
-					component="main"
-					className={classes.heroContent}
-				>
-					<Typography
-						component="h1"
-						variant="h2"
-						align="center"
-						color="textPrimary"
-						gutterBottom
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				<React.Fragment>
+					{/*The title and subtitle of the page aka HERO CONTENT*/}
+					<Container
+						maxWidth="sm"
+						component="main"
+						className={classes.heroContent}
 					>
-						Book Recommendation
-					</Typography>
-					<Typography
-						variant="h5"
-						align="center"
-						color="textSecondary"
-						component="p"
-					>
-						Find your next read below!
-					</Typography>
-				</Container>
-				{/*End of title/subtitle segment or HERO CONTENT*/}
-				<Container maxWidth="md" component="main">
-					<Grid container spacing={5} alignItems="flex-end">
-						{tiers.map((tier) => (
-							<Grid
-								item
-								key={tier.title}
-								xs={12}
-								sm={tier.title === "Enterprise" ? 12 : 6}
-								md={4}
-							>
-								<Card>
-									<CardHeader
-										title={tier.title}
-										subheader={tier.subheader}
-										titleTypographyProps={{ align: "center" }}
-										subheaderTypographyProps={{ align: "center" }}
-										action={tier.title === "Pro" ? <StarIcon /> : null}
-										className={classes.cardHeader}
-									/>
-									<CardContent>
-										<ul>
-											{tier.description.map((line) => (
-												<Typography
-													component="li"
-													variant="subtitle1"
-													align="center"
-													key={line}
-												>
-													{line}
-												</Typography>
-											))}
-										</ul>
-									</CardContent>
-									<CardActions>
-										<Button
-											fullWidth
-											variant={tier.buttonVariant}
-											color="primary"
-										>
-											{tier.buttonText}
-										</Button>
-									</CardActions>
-								</Card>
-							</Grid>
-						))}
-					</Grid>
-				</Container>
-			</React.Fragment>
+						<Typography
+							component="h1"
+							variant="h2"
+							align="center"
+							color="textPrimary"
+							gutterBottom
+						>
+							Book Recommendation
+						</Typography>
+						<Typography
+							variant="h5"
+							align="center"
+							color="textSecondary"
+							component="p"
+						>
+							Find your next read below!
+						</Typography>
+					</Container>
+					{/*End of title/subtitle segment or HERO CONTENT*/}
+					<Container maxWidth="md" component="main">
+						<Grid container spacing={5} alignItems="flex-end">
+							{tiers.map((tier) => (
+								<Grid
+									item
+									key={tier.title}
+									xs={12}
+									sm={tier.title === "Enterprise" ? 12 : 6}
+									md={4}
+								>
+									<Card>
+										<CardHeader
+											title={tier.title}
+											subheader={tier.subheader}
+											titleTypographyProps={{ align: "center" }}
+											subheaderTypographyProps={{ align: "center" }}
+											action={tier.title === "Pro" ? <StarIcon /> : null}
+											className={classes.cardHeader}
+										/>
+										<CardContent>
+											<ul>
+												{tier.description.map((line) => (
+													<Typography
+														component="li"
+														variant="subtitle1"
+														align="center"
+														key={line}
+													>
+														{line}
+													</Typography>
+												))}
+											</ul>
+										</CardContent>
+										<CardActions>
+											<Button
+												fullWidth
+												variant={tier.buttonVariant}
+												color="primary"
+											>
+												{tier.buttonText}
+											</Button>
+										</CardActions>
+									</Card>
+								</Grid>
+							))}
+						</Grid>
+					</Container>
+				</React.Fragment>
+			</ThemeProvider>
 		</div>
 	);
 }
