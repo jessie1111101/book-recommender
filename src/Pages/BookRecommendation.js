@@ -200,17 +200,20 @@ export default function BookRecommendation(props) {
 											</ul>
 										</CardContent>
 										<CardActions>
-											<img
-												src={tier.image}
-												alt="new"
-											/>
-											{/* <Button
+											<Container>
+												<img
+													src={tier.image}
+													alt="new"
+													className="img"
+												/>
+												{/* <Button
 												fullWidth
 												variant={tier.buttonVariant}
 												className={classes.button}
-											>
-												{tier.buttonText}
-											</Button> */}
+												>
+													{tier.buttonText}
+												</Button> */}
+											</Container>
 										</CardActions>
 									</Card>
 								</Grid>
