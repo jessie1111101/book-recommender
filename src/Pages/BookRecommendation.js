@@ -204,7 +204,7 @@ export default function BookRecommendation(props) {
 												<img
 													src={tier.image}
 													alt="new"
-													className="img"
+													className="center"
 												/>
 												{/* <Button
 												fullWidth
