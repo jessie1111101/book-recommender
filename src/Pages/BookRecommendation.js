@@ -199,13 +199,13 @@ export default function BookRecommendation(props) {
 												src={tier.description[2]}
 												alt="new"
 											/>
-											<Button
+											{/* <Button
 												fullWidth
 												variant={tier.buttonVariant}
 												className={classes.button}
 											>
 												{tier.buttonText}
-											</Button>
+											</Button> */}
 										</CardActions>
 									</Card>
 								</Grid>
