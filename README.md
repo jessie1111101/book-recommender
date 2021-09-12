@@ -4,8 +4,8 @@
 
 This is a webapp that uses Machine Learning (TF-IDF vectorization and cosine similarity) to recommend books to you based on your input of a book title that you enjoyed. 
 
-ML:  Python, pandas, sklearn, 
-Backend: Flask
+ML:  Python, pandas, sklearn <br />
+Backend: Flask <br />
 Frontend: React.js and scss
 
 ### Scripts, Starting up, and Dependencies
