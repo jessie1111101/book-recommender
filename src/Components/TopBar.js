@@ -32,8 +32,8 @@ const useStyles = makeStyles((theme) => ({
 		margin: theme.spacing(1, 1.5),
 	},
 	button: {
-		color: "white",
-		border: "white",
+		color: 'rgb(76, 83, 145)',
+		border: 'rgb(76, 83, 145)',
 	},
 }));
 
