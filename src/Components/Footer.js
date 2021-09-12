@@ -9,7 +9,8 @@ import Copyright from "./Copyright";
 const useStyles = makeStyles((theme) => ({
 	footer: {
 		borderTop: `1px solid ${theme.palette.divider}`,
-		marginTop: theme.spacing(45),
+		marginBottom: theme.spacing(2),
+		marginTop: theme.spacing(30),
 		// paddingTop: theme.spacing(3),
 		//paddingBottom: theme.spacing(10),
 		// [theme.breakpoints.up("sm")]: {

@@ -9,7 +9,7 @@ import theme from "../theme";
 export default function Copyright() {
 	return (
 		<ThemeProvider theme={theme}>
-			<Typography variant="body2" color="primary.contrastText" align="center">
+			<Typography variant="body2" color="textPrimary" align="center">
 				{"Copyright © Big Brain - PennApps XXII"}
 				{/* <Link color="primary" href="https://material-ui.com/">
 				
