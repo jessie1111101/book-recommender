@@ -38,9 +38,10 @@ export default function TopBar() {
 				color="default"
 				elevation={0}
 				className={classes.appBar}
+				color="primary"
 			>
 				<Toolbar className={classes.toolbar}>
-					<span class="material-icons-outlined md-48">psychology</span>
+					<span class="material-icons-outlined md-38">psychology</span>
 					<Typography
 						variant="h6"
 						color="inherit"
@@ -71,7 +72,6 @@ export default function TopBar() {
 					</Button> */}
 				</Toolbar>
 			</AppBar>
-			;
 		</div>
 	);
 }
