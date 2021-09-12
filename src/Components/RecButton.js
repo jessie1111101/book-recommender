@@ -15,7 +15,7 @@ const style = makeStyles({
 	},
 });
 
-const RecButton = () => {
+const RecButton = (props) => {
 	const classes = style();
 	return (
 		<div>
@@ -23,7 +23,7 @@ const RecButton = () => {
 				<Button
 					className={classes.titleItemRight}
 					variant="contained"
-					onClick={Component.handleOnClick}
+					onClick={props.handleOnClick}
 					color="primary"
 					size="small"
 					endIcon={<SearchIcon />}

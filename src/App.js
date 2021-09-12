@@ -85,7 +85,22 @@ export default function App() {
 
 	// const [data, setData] = useState({});
 	const [titles, setTitles] = useState({});
+	const [selected, setSelected] = useState("");
+	const [displayError, setDisplayError] = useState(false);
 
+	const handleOnClick = () => {
+		if (selected == "") {
+			setDisplayError(true);
+		} else {
+			setDisplayError(false);
+			console.log("router display results " + selected);
+			history.push("/recommendation");
+		}
+	};
+
+	const updateSelected = (title) => {
+		setSelected(title);
+	}
 	// useEffect(() => {
 	// 	fetch('/recommendations').then(
 	// 		res => res.json()
@@ -116,7 +131,7 @@ export default function App() {
 						<BookRecommendation />
 					</Route>
 					<Route path="/">
-						<Homepage />
+						<Homepage handleOnClick={handleOnClick} displayError={displayError} updateSelected={updateSelected} />
 					</Route>
 				</Switch>
 			</Router>
