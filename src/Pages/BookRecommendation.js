@@ -66,6 +66,7 @@ export default function BookRecommendation(props) {
 			],
 			buttonText: "BUTTON TEXT MAYBE PURCHASE??",
 			buttonVariant: "outlined",
+			image: "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png"
 		},
 		{
 			title: "TITLE2",
@@ -79,6 +80,7 @@ export default function BookRecommendation(props) {
 			],
 			buttonText: "BUTTON TEXT MAYBE PURCHASE???",
 			buttonVariant: "contained",
+			image: "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png"
 		},
 		{
 			title: "TITLE3",
@@ -92,6 +94,7 @@ export default function BookRecommendation(props) {
 			],
 			buttonText: "BUTTON TEXT MAYBE PURCHASE",
 			buttonVariant: "outlined",
+			image: "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png"
 		},
 	]);
 
@@ -116,16 +119,15 @@ export default function BookRecommendation(props) {
 				],
 				buttonText: "Purchase",
 				buttonVariant: "outlined",
+				image: "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png"
 			};
 			fetch("/search/" + encodeURIComponent(recs[i].title))
 				.then((res) => res.json())
 				.then((data) => {
-					currentCard.description.push(
-						data && data.books && data.books.work ? (
-							data.books.work.constructor !== Array ? data.books.work.best_book.image_url
-								: data.books.work[0].best_book.image_url)
-							: ""
-					);
+					currentCard.image = data && data.books && data.books.work ?
+						data.books.work.constructor !== Array ? data.books.work.best_book.image_url
+							: data.books.work[0].best_book.image_url
+						: "";
 					setCard(currentCard);
 				});
 			tiers.push(currentCard);
@@ -199,7 +201,7 @@ export default function BookRecommendation(props) {
 										</CardContent>
 										<CardActions>
 											<img
-												src={tier.description[2]}
+												src={tier.image}
 												alt="new"
 											/>
 											{/* <Button
