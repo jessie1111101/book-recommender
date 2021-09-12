@@ -1,6 +1,7 @@
 import flask
 from flask import request
 from urllib.request import urlopen
+from urllib.parse import quote
 import xmltodict
 import json
 
