@@ -121,7 +121,7 @@ export default function BookRecommendation(props) {
 				.then((res) => res.json())
 				.then((data) => {
 					currentCard.description.push(
-						"Image: " + data.books.work[0].best_book.image_url
+						"Image: " + data.books.work[0].best_book.image_url.replace("._SX98_.jpg", ".jpg")
 					);
 					setCard(currentCard);
 				});
