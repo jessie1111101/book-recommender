@@ -38,6 +38,7 @@ export default function TopBar() {
 				color="default"
 				elevation={0}
 				className={classes.appBar}
+				color="primary"
 			>
 				<Toolbar className={classes.toolbar}>
 					<span class="material-icons-outlined md-38">psychology</span>
