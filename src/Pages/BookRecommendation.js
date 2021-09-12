@@ -10,6 +10,7 @@ import StarIcon from "@material-ui/icons/StarBorder";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { IsoRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
 	"@global": {
@@ -43,6 +44,7 @@ export default function BookRecommendation(props) {
 	const classes = useStyles();
 	const { book } = props;
 
+	const [card, setCard] = useState({});
 	const [tiers, setTiers] = useState([
 		{
 			title: "TITLE1",
@@ -89,27 +91,35 @@ export default function BookRecommendation(props) {
 		fetch("/recommendations/" + encodeURIComponent(book)).then(
 			res => res.json()
 		).then(
-			data => {
-				setTiers(populateBooks(data));
+			recs => {
+				setTiers(populateBooks(recs));
 			}
 		);
 	}, []);
 
-	const populateBooks = (data) => {
+	const populateBooks = (recs) => {
 		var tiers = [];
 		for (let i = 0; i < 3; i++) {
-			const x = {
-				title: data[i].title,
-				subheader: data[i].authors,
+			const currentCard = {
+				title: recs[i].title,
+				subheader: recs[i].authors,
 				price: "0",
 				description: [
-					"Original Publication Year: " + data[0].original_publication_year,
-					"Average Rating: " + data[0].average_rating
+					"Original Publication Year: " + recs[0].original_publication_year,
+					"Average Rating: " + recs[0].average_rating,
 				],
 				buttonText: "Purchase",
 				buttonVariant: "outlined",
 			};
-			tiers.push(x);
+			fetch("/search/" + encodeURIComponent(recs[i].title)).then(
+				res => res.json()
+			).then(
+				data => {
+					currentCard.description.push("Image: " + data.books.work[0].best_book.image_url);
+					setCard(currentCard);
+				}
+			);
+			tiers.push(currentCard);
 		}
 
 		return tiers;
