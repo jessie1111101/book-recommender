@@ -15,13 +15,13 @@ app = flask.Flask(__name__)
 TfidVectorizer = sklearn.feature_extraction.text.TfidfVectorizer
 linear_kernel = sklearn.metrics.pairwise.linear_kernel
 
-df_books = pd.read_csv('../goodreads_10k/books.csv')
+df_books = pd.read_csv('./goodreads_10k/books.csv')
 books_df = df_books[['book_id', 'original_title', 'authors']]
 books_df = books_df.sort_values('book_id')
 
-book_tags = pd.read_csv('../goodreads_10k/book_tags.csv')
+book_tags = pd.read_csv('./goodreads_10k/book_tags.csv')
 
-tags = pd.read_csv('../goodreads_10k/tags.csv')
+tags = pd.read_csv('./goodreads_10k/tags.csv')
 
 merge_tags = pd.merge(book_tags, tags, left_on='tag_id', right_on='tag_id', how='inner')
 
