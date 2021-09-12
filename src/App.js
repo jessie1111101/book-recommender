@@ -11,10 +11,7 @@ import Homepage from "./Pages/Homepage";
 import Footer from "./Components/Footer";
 
 export default function App() {
-	// const classes = useStyles();
 
-	// const [data, setData] = useState({});
-	// const [titles, setTitles] = useState({});
 	const [selected, setSelected] = useState("");
 	const [displayError, setDisplayError] = useState(false);
 
@@ -36,14 +33,6 @@ export default function App() {
 		setSelected("");
 		history.push("/");
 	};
-
-	// useEffect(() => {
-	// 	fetch("/getAllTitles")
-	// 		.then((res) => res.json())
-	// 		.then((titles) => {
-	// 			setTitles(titles);
-	// 		});
-	// }, []);
 
 	return (
 		<div>
