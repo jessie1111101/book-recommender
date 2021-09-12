@@ -1,7 +1,8 @@
 import React from "react";
+import history from "../history";
 
 import { AppBar } from "@material-ui/core";
-//import Button from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 //import Link from "@material-ui/core/Link";
@@ -27,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
 	link: {
 		margin: theme.spacing(1, 1.5),
 	},
+	button: {
+		color: 'white',
+		border: 'white'
+	}
 }));
 
 export default function TopBar() {
@@ -61,15 +66,15 @@ export default function TopBar() {
 							Take a Test to get your Recommendation!
 						</Link>
 					</nav> */}
-					{/* <Button
+					<Button
 						href="#"
 						color="primary"
 						variant="outlined"
-						className={classes.link}
-						//onClick = {}
+						className={classes.link, classes.button}
+						onClick={() => history.push("/")}
 					>
-						Login
-					</Button> */}
+						Home
+					</Button>
 				</Toolbar>
 			</AppBar>
 		</div>
