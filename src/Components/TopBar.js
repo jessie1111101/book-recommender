@@ -40,7 +40,7 @@ export default function TopBar() {
 				className={classes.appBar}
 			>
 				<Toolbar className={classes.toolbar}>
-					<span class="material-icons-outlined md-48">psychology</span>
+					<span class="material-icons-outlined md-36">psychology</span>
 					<Typography
 						variant="h6"
 						color="inherit"
