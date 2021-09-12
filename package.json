@@ -23,7 +23,7 @@
   },
   "scripts": {
     "client": "react-scripts start",
-    "server": "cd api && python3 main.py",
+    "server": "python3 main.py",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts build",
     "test": "react-scripts test",

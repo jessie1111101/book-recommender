@@ -60,7 +60,6 @@ def get_all_titles():
 
 @app.route('/recommendations/<title>')
 def get_recommendations(title="Romeo and Juliet", num_recommendations = 3):
-    #print(request.get_json())
     title = title.replace("&amp;", "&")
     idx = indices[title]
     sim_scores = list(enumerate(cosine_sim_combined[idx]))
@@ -72,8 +71,6 @@ def get_recommendations(title="Romeo and Juliet", num_recommendations = 3):
     result_df = result_df.reset_index()
     result_df.drop('index',inplace=True, axis=1)
     return result_df.to_json(orient='index')
-
-print(get_recommendations())
 
 @app.route("/search/<query>", methods = ['GET'])
 def search(query):
