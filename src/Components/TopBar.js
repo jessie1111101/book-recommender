@@ -7,6 +7,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 //import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
+
+import theme from "../theme";
 
 const useStyles = makeStyles((theme) => ({
 	// "@global": {
@@ -29,33 +32,34 @@ const useStyles = makeStyles((theme) => ({
 		margin: theme.spacing(1, 1.5),
 	},
 	button: {
-		color: 'white',
-		border: 'white'
-	}
+		color: "white",
+		border: "white",
+	},
 }));
 
 export default function TopBar(props) {
 	const classes = useStyles();
 	return (
 		<div>
-			<AppBar
-				position="static"
-				color="default"
-				elevation={0}
-				className={classes.appBar}
-				color="primary"
-			>
-				<Toolbar className={classes.toolbar}>
-					<span class="material-icons-outlined md-38">psychology</span>
-					<Typography
-						variant="h6"
-						color="inherit"
-						noWrap
-						className={classes.toolbarTitle}
-					>
-						Big Brain Team - PennApps XXII
-					</Typography>
-					{/* <nav>
+			<ThemeProvider theme={theme}>
+				<AppBar
+					position="static"
+					color="default"
+					elevation={0}
+					className={classes.appBar}
+					color="primary"
+				>
+					<Toolbar className={classes.toolbar}>
+						<span class="material-icons-outlined md-38">psychology</span>
+						<Typography
+							variant="h6"
+							color="inherit"
+							noWrap
+							className={classes.toolbarTitle}
+						>
+							Big Brain Team - PennApps XXII
+						</Typography>
+						{/* <nav>
 						<Link
 							variant="button"
 							color="textPrimary"
@@ -66,17 +70,18 @@ export default function TopBar(props) {
 							Take a Test to get your Recommendation!
 						</Link>
 					</nav> */}
-					<Button
-						href="#"
-						color="primary"
-						variant="outlined"
-						className={classes.link, classes.button}
-						onClick={props.goHome}
-					>
-						Home
-					</Button>
-				</Toolbar>
-			</AppBar>
+						<Button
+							href="#"
+							color="primary"
+							variant="outlined"
+							className={(classes.link, classes.button)}
+							onClick={props.goHome}
+						>
+							Home
+						</Button>
+					</Toolbar>
+				</AppBar>
+			</ThemeProvider>
 		</div>
 	);
 }

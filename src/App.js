@@ -1,6 +1,6 @@
 import { Router, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import './App.scss';
+import "./App.scss";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 
@@ -30,21 +30,19 @@ export default function App() {
 
 	const updateSelected = (title) => {
 		setSelected(title);
-	}
+	};
 
 	const goHome = () => {
 		setSelected("");
 		history.push("/");
-	}
+	};
 
 	useEffect(() => {
-		fetch('/getAllTitles').then(
-			res => res.json()
-		).then(
-			titles => {
-				setTitles(titles)
-			}
-		);
+		fetch("/getAllTitles")
+			.then((res) => res.json())
+			.then((titles) => {
+				setTitles(titles);
+			});
 	}, []);
 
 	return (
@@ -57,11 +55,16 @@ export default function App() {
 						<BookRecommendation book={selected} />
 					</Route>
 					<Route path="/">
-						<Homepage handleOnClick={handleOnClick} displayError={displayError} updateSelected={updateSelected} />
+						<Homepage
+							handleOnClick={handleOnClick}
+							displayError={displayError}
+							updateSelected={updateSelected}
+						/>
 					</Route>
 				</Switch>
 			</Router>
+			<h5 />
 			<Footer />
-		</div >
+		</div>
 	);
 }
