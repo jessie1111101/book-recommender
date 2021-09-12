@@ -128,7 +128,7 @@ export default function App() {
 			<Router history={history}>
 				<Switch>
 					<Route path="/recommendation">
-						<BookRecommendation />
+						<BookRecommendation book={selected} />
 					</Route>
 					<Route path="/">
 						<Homepage handleOnClick={handleOnClick} displayError={displayError} updateSelected={updateSelected} />

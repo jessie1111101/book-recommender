@@ -1,4 +1,5 @@
 import flask
+from flask import request
 from urllib.request import urlopen
 import xmltodict
 import json
@@ -66,7 +67,7 @@ def get_all_titles():
 
 @app.route('/recommendations/<title>')
 def get_recommendations(title="Romeo and Juliet", num_recommendations = 3):
-
+    #print(request.get_json())
     idx = indices[title]
     sim_scores = list(enumerate(cosine_sim_combined[idx]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)

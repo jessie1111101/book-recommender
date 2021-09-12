@@ -81,9 +81,19 @@ const tiers = [
 	},
 ];
 
-export default function BookRecommendation() {
+export default function BookRecommendation(props) {
 	const classes = useStyles();
+	const { book } = props;
 
+	useEffect(() => {
+		fetch("/recommendations/" + encodeURIComponent(book)).then(
+			res => res.json()
+		).then(
+			data => {
+				alert(JSON.stringify(data));
+			}
+		);
+	}, []);
 
 	return (
 		<div>
