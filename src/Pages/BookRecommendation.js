@@ -127,7 +127,7 @@ export default function BookRecommendation(props) {
 					currentCard.image = data && data.books && data.books.work ?
 						data.books.work.constructor !== Array ? data.books.work.best_book.image_url
 							: data.books.work[0].best_book.image_url
-						: "";
+						: "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png";
 					setCard(currentCard);
 				});
 			tiers.push(currentCard);
