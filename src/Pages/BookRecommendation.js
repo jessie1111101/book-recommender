@@ -96,10 +96,11 @@ export default function BookRecommendation(props) {
 	}, []);
 
 	const populateBooks = (data) => {
-		return [
-			{
-				title: data[0].title,
-				subheader: data[0].authors,
+		var tiers = [];
+		for (let i = 0; i < 3; i++) {
+			const x = {
+				title: data[i].title,
+				subheader: data[i].authors,
 				price: "0",
 				description: [
 					"Original Publication Year: " + data[0].original_publication_year,
@@ -107,30 +108,11 @@ export default function BookRecommendation(props) {
 				],
 				buttonText: "Purchase",
 				buttonVariant: "outlined",
-			},
-			{
-				title: data[1].title,
-				subheader: data[1].authors,
-				price: "15",
-				description: [
-					"Original Publication Year: " + data[0].original_publication_year,
-					"Average Rating: " + data[0].average_rating
-				],
-				buttonText: "Purchase",
-				buttonVariant: "contained",
-			},
-			{
-				title: data[2].title,
-				subheader: data[2].authors,
-				price: "30",
-				description: [
-					"Original Publication Year: " + data[1].original_publication_year,
-					"Average Rating: " + data[1].average_rating
-				],
-				buttonText: "Purchase",
-				buttonVariant: "outlined",
-			},
-		];
+			};
+			tiers.push(x);
+		}
+
+		return tiers;
 	}
 
 	return (
