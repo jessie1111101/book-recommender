@@ -32,8 +32,8 @@ const useStyles = makeStyles((theme) => ({
 		margin: theme.spacing(1, 1.5),
 	},
 	button: {
-		color: 'rgb(76, 83, 145)',
-		border: 'rgb(76, 83, 145)',
+		color: "rgb(76, 83, 145)",
+		border: "rgb(76, 83, 145)",
 	},
 }));
 
@@ -44,7 +44,7 @@ export default function TopBar(props) {
 			<ThemeProvider theme={theme}>
 				<AppBar
 					position="static"
-					color="default"
+					//color="default"
 					elevation={0}
 					className={classes.appBar}
 					color="primary"
