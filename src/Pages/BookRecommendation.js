@@ -39,61 +39,99 @@ const useStyles = makeStyles((theme) => ({
 	// },
 }));
 
-const tiers = [
-	{
-		title: "TITLE1",
-		subheader: "HOW WELL RATED",
-		price: "0",
-		description: [
-			"DESCRIPTION1",
-			"DESCRIPTION4",
-			"DESCRIPTION7",
-			"DESCRIPTION10",
-		],
-		buttonText: "BUTTON TEXT MAYBE PURCHASE??",
-		buttonVariant: "outlined",
-	},
-	{
-		title: "TITLE2",
-		subheader: "HOW WELL RATED",
-		price: "15",
-		description: [
-			"DESCRIPTION2",
-			"DESCRIPTION5",
-			"DESCRIPTION8",
-			"DESCRIPTION11",
-		],
-		buttonText: "BUTTON TEXT MAYBE PURCHASE???",
-		buttonVariant: "contained",
-	},
-	{
-		title: "TITLE3",
-		subheader: "HOW WELL RATED",
-		price: "30",
-		description: [
-			"DESCRIPTION3",
-			"DESCRIPTION6",
-			"DESCRIPTION9",
-			"DESCRIPTION12",
-		],
-		buttonText: "BUTTON TEXT MAYBE PURCHASE",
-		buttonVariant: "outlined",
-	},
-];
-
 export default function BookRecommendation(props) {
 	const classes = useStyles();
 	const { book } = props;
+
+	const [tiers, setTiers] = useState([
+		{
+			title: "TITLE1",
+			subheader: "HOW WELL RATED",
+			price: "0",
+			description: [
+				"DESCRIPTION1",
+				"DESCRIPTION4",
+				"DESCRIPTION7",
+				"DESCRIPTION10",
+			],
+			buttonText: "BUTTON TEXT MAYBE PURCHASE??",
+			buttonVariant: "outlined",
+		},
+		{
+			title: "TITLE2",
+			subheader: "HOW WELL RATED",
+			price: "15",
+			description: [
+				"DESCRIPTION2",
+				"DESCRIPTION5",
+				"DESCRIPTION8",
+				"DESCRIPTION11",
+			],
+			buttonText: "BUTTON TEXT MAYBE PURCHASE???",
+			buttonVariant: "contained",
+		},
+		{
+			title: "TITLE3",
+			subheader: "HOW WELL RATED",
+			price: "30",
+			description: [
+				"DESCRIPTION3",
+				"DESCRIPTION6",
+				"DESCRIPTION9",
+				"DESCRIPTION12",
+			],
+			buttonText: "BUTTON TEXT MAYBE PURCHASE",
+			buttonVariant: "outlined",
+		},
+	]);
 
 	useEffect(() => {
 		fetch("/recommendations/" + encodeURIComponent(book)).then(
 			res => res.json()
 		).then(
 			data => {
-				alert(JSON.stringify(data));
+				setTiers(populateBooks(data));
 			}
 		);
 	}, []);
+
+	const populateBooks = (data) => {
+		return [
+			{
+				title: data[0].title,
+				subheader: data[0].authors,
+				price: "0",
+				description: [
+					"Original Publication Year: " + data[0].original_publication_year,
+					"Average Rating: " + data[0].average_rating
+				],
+				buttonText: "Purchase",
+				buttonVariant: "outlined",
+			},
+			{
+				title: data[1].title,
+				subheader: data[1].authors,
+				price: "15",
+				description: [
+					"Original Publication Year: " + data[0].original_publication_year,
+					"Average Rating: " + data[0].average_rating
+				],
+				buttonText: "Purchase",
+				buttonVariant: "contained",
+			},
+			{
+				title: data[2].title,
+				subheader: data[2].authors,
+				price: "30",
+				description: [
+					"Original Publication Year: " + data[1].original_publication_year,
+					"Average Rating: " + data[1].average_rating
+				],
+				buttonText: "Purchase",
+				buttonVariant: "outlined",
+			},
+		];
+	}
 
 	return (
 		<div>
