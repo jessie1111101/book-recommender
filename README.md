@@ -12,9 +12,9 @@ Frontend: React.js and scss
 
 Python3 is needed to run the project.
 
-Once opening the project, run
-`npm install`
-and 
+Once opening the project, run <br />
+`npm install` <br />
+and run <br />
 `pip3 install xmltodict flask numpy pandas scikit-learn sklearn scipy`
 
 To start the client, run 
