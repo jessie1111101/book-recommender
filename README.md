@@ -28,3 +28,9 @@ To start the server, run
 
 To start both, run
 `yarn start`
+
+### Usage
+
+Click the dropdown and start typing to search for a book. Click Get Recommendations and our ML algorithm will pick out 3 of the top book recommendations!
+![](https://i.imgur.com/BU4aatN.png)
+![](https://i.imgur.com/QHvdfDg.png)
