@@ -14,7 +14,7 @@ export default function App() {
 	// const classes = useStyles();
 
 	// const [data, setData] = useState({});
-	const [titles, setTitles] = useState({});
+	// const [titles, setTitles] = useState({});
 	const [selected, setSelected] = useState("");
 	const [displayError, setDisplayError] = useState(false);
 
@@ -37,13 +37,13 @@ export default function App() {
 		history.push("/");
 	};
 
-	useEffect(() => {
-		fetch("/getAllTitles")
-			.then((res) => res.json())
-			.then((titles) => {
-				setTitles(titles);
-			});
-	}, []);
+	// useEffect(() => {
+	// 	fetch("/getAllTitles")
+	// 		.then((res) => res.json())
+	// 		.then((titles) => {
+	// 			setTitles(titles);
+	// 		});
+	// }, []);
 
 	return (
 		<div>

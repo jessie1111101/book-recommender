@@ -138,7 +138,7 @@ export default function BookRecommendation(props) {
 						component="h1"
 						variant="h2"
 						align="center"
-						color="textPrimary"
+						className="purple-text"
 						gutterBottom
 					>
 						Book Recommendation

@@ -82,7 +82,7 @@ export default function Homepage(props) {
 							component="h1"
 							variant="h2"
 							align="center"
-							color="#4C5391"
+							className="purple-text"
 							gutterBottom
 						>
 							Book Recommendation
