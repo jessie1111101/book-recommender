@@ -34,3 +34,7 @@ To start both, run
 Click the dropdown and start typing to search for a book. Click Get Recommendations and our ML algorithm will pick out 3 of the top book recommendations!
 ![](https://i.imgur.com/BU4aatN.png)
 ![](https://i.imgur.com/QHvdfDg.png)
+
+[YouTube Demo](https://www.youtube.com/watch?v=TIIIxY3viZE)
+
+[Devpost Link](https://devpost.com/software/bookrecommender)
