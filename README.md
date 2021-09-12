@@ -6,16 +6,19 @@ This is a webapp that uses Machine Learning (TF-IDF vectorization and cosine sim
 
 ML:  Python, pandas, sklearn <br />
 Backend: Flask <br />
-Frontend: React.js and scss
+Frontend: React.js, Material-UI and scss
 
-### Scripts, Starting up, and Dependencies
+### Dependencies
 
-Python3 is needed to run the project.
+- Python3
+- npm
+
+### Installation
 
 Once opening the project, run <br />
 `npm install` <br />
 and run <br />
-`pip3 install xmltodict flask numpy pandas scikit-learn sklearn scipy`
+`pip3 install -t lib -r requirements.txt`
 
 To start the client, run 
 `yarn client`
