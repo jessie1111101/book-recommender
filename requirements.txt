@@ -1,5 +1,5 @@
 chardet==4.0.0
-click==8.0.1
+click==7.1.2
 Flask==2.0.1
 idna==2.10
 importlib-metadata==4.6.1
